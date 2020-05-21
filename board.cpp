@@ -34,10 +34,10 @@ void Board::makeBorders()
 }
 std::string Board::parseBoardToString()
 {
-    std::unique_ptr<BoardToString> p_boardToString(new BoardToString(getWidth()));
-    BoardToString boardToString = *p_boardToString;
-    std::for_each(v_board.begin(), v_board.end(), std::ref(boardToString));
-    return boardToString.getStringBoard();
+    std::unique_ptr<BoardToString> p_boardToStringConventer(new BoardToString(getWidth()));
+    BoardToString boardToStringConventer = *p_boardToStringConventer;
+    std::for_each(v_board.begin(), v_board.end(), std::ref(boardToStringConventer));
+    return boardToStringConventer.getStringBoard();
 }
 
 
