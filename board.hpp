@@ -14,6 +14,8 @@ class Board
         unsigned getHeight();
         unsigned getBoardSize();
         unsigned getIndex(Coordinates coord);
+        char getCellValue(Coordinates coord);
+        void setCellValue(Coordinates coord, char value);
         std::vector<char>& getBoardReference();
         std::string parseBoardToString();
     private:

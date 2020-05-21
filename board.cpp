@@ -9,6 +9,7 @@ unsigned Board::getHeight() {return U_HEIGHT;}
 unsigned Board::getWidth() {return U_WIDTH;}
 unsigned Board::getBoardSize() {return U_BOARD_SIZE;}
 unsigned Board::getIndex(Coordinates coord) {return coord.x + coord.y * getWidth();}
+char Board::getCellValue(Coordinates coord) {return v_board[getIndex(coord)];}
 std::vector<char>& Board::getBoardReference() {return v_board;}
 
 void Board::initializeBoard()
@@ -18,6 +19,7 @@ void Board::initializeBoard()
         v_board.push_back(' ');
     }
 }
+void Board::setCellValue(Coordinates coord, char value) {v_board[getIndex(coord)] = value;}
 void Board::makeBorders()
 {
     unsigned width = getWidth();
