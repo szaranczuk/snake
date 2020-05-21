@@ -1,4 +1,1 @@
-bin/
-obj/
-*.layout
-*.depend
+build/

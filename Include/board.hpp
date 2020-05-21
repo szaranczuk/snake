@@ -13,18 +13,21 @@ class Board
         unsigned getWidth();
         unsigned getHeight();
         unsigned getBoardSize();
-        unsigned getIndex(Coordinates coord);
         char getCellValue(Coordinates coord);
+        bool isCellEmpty(Coordinates coord);
         void setCellValue(Coordinates coord, char value);
+        char getBorderChar();
         std::vector<char>& getBoardReference();
         std::string parseBoardToString();
     private:
+        unsigned getIndex(Coordinates coord);
         const unsigned U_HEIGHT;
         const unsigned U_WIDTH;
         const unsigned U_BOARD_SIZE;
         std::vector<char> v_board; //1D represantation of 2D array
         void initializeBoard();
         void makeBorders();
+        const char BORDER_CHAR;
 };
 
 class BoardToString //conversion functor
