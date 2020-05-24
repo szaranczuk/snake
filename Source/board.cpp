@@ -1,6 +1,6 @@
 #include "board.hpp"
 
-Board::Board(unsigned _height, unsigned _width) : U_HEIGHT(_height), U_WIDTH(_width), U_BOARD_SIZE(_height * _width), BORDER_CHAR('*')
+Board::Board(unsigned _height, unsigned _width) : U_HEIGHT(_height), U_WIDTH(_width), U_BOARD_SIZE(_height * _width), BORDER_WALLS_CHAR('|'), BORDER_ROOF_CHAR('_'), BORDER_FLOOR_CHAR('#')
 {
     initializeBoard();
     makeBorders();
@@ -10,7 +10,9 @@ unsigned Board::getWidth() {return U_WIDTH;}
 unsigned Board::getBoardSize() {return U_BOARD_SIZE;}
 unsigned Board::getIndex(Coordinates coord) {return coord.x + coord.y * getWidth();}
 char Board::getCellValue(Coordinates coord) {return v_board[getIndex(coord)];}
-char Board::getBorderChar() {return BORDER_CHAR;}
+char Board::getBorderWallsChar() {return BORDER_WALLS_CHAR;}
+char Board::getBorderRoofChar() {return BORDER_ROOF_CHAR;}
+char Board::getBorderFloorChar() {return BORDER_FLOOR_CHAR;}
 std::vector<char>& Board::getBoardReference() {return v_board;}
 
 void Board::initializeBoard()
@@ -26,15 +28,15 @@ void Board::makeBorders()
 {
     unsigned width = getWidth();
     unsigned height = getHeight();
-    for (unsigned i = 0; i < width; i++) //first row
-        v_board[getIndex({i, 0})] = BORDER_CHAR;
-    for (unsigned i = 0; i < height; i++) //first and last column
+    for (unsigned i = 0; i < width; i++) //border roof
+        v_board[getIndex({i, 0})] = BORDER_ROOF_CHAR;
+    for (unsigned i = 1; i < height - 1; i++) //border walls
     {
-        v_board[getIndex({0, i})] = '*';
-        v_board[getIndex({width - 1, i})] = BORDER_CHAR;
+        v_board[getIndex({0, i})] = BORDER_WALLS_CHAR;
+        v_board[getIndex({width - 1, i})] = BORDER_WALLS_CHAR;
     }
-    for (unsigned i = 0; i < width; i++) //last row
-        v_board[getIndex({i, height - 1})] = BORDER_CHAR;
+    for (unsigned i = 0; i < width; i++) //border floor
+        v_board[getIndex({i, height - 1})] = BORDER_FLOOR_CHAR;
 }
 std::string Board::parseBoardToString()
 {

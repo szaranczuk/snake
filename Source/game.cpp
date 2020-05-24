@@ -12,7 +12,7 @@ Game::Game(unsigned _boardHeight, unsigned _boardWidth) : game_board(_boardHeigh
 bool Game::isSnakeOnLoosingCell()
 {
     char headPosCellValue = game_board.getCellValue(player_snake.getHeadPos());
-    return headPosCellValue == game_board.getBorderChar() || headPosCellValue == player_snake.getBodyChar();
+    return headPosCellValue == game_board.getBorderWallsChar() || headPosCellValue == game_board.getBorderRoofChar() || headPosCellValue == game_board.getBorderFloorChar() || headPosCellValue == player_snake.getBodyChar();
 }
 void Game::takePlayerTurn(int _direction)
 {

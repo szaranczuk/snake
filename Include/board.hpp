@@ -16,7 +16,9 @@ class Board
         char getCellValue(Coordinates coord);
         bool isCellEmpty(Coordinates coord);
         void setCellValue(Coordinates coord, char value);
-        char getBorderChar();
+        char getBorderWallsChar();
+        char getBorderRoofChar();
+        char getBorderFloorChar();
         std::vector<char>& getBoardReference();
         std::string parseBoardToString();
     private:
@@ -27,7 +29,9 @@ class Board
         std::vector<char> v_board; //1D represantation of 2D array
         void initializeBoard();
         void makeBorders();
-        const char BORDER_CHAR;
+        const char BORDER_WALLS_CHAR;
+        const char BORDER_ROOF_CHAR;
+        const char BORDER_FLOOR_CHAR;
 };
 
 class BoardToString //conversion functor

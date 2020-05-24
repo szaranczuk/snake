@@ -1,5 +1,6 @@
 #include "snake.hpp"
-Snake::Snake() : HEAD_CHAR('@'), BODY_CHAR('%') {}
+Snake::Snake() :  BODY_CHAR('%'),
+HEAD_CHAR('@'){}
 Coordinates Snake::getHeadPos() {return head_pos;}
 Coordinates Snake::getPoppedElementPos() {return popped_element_pos;}
 void Snake::setPoppedElementPos(Coordinates coord) {popped_element_pos = coord;}
