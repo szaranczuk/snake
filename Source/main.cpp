@@ -30,6 +30,7 @@ const unsigned getDirectionFromUser()
 
 int main()
 {
+    system(clean);
     Game game(10, 10);
     std::cout << game.getBoardToPrint();
     while(!game.isSnakeOnLoosingCell())
