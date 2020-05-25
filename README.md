@@ -1,7 +1,8 @@
 # Simple snake game made in C++17 with STL
 
 Navigation through WSAD keys.  
-Keys and board size can be easily changed by modifying main.cpp
+Keys and board size can be easily changed by modifying main.cpp  
+GUI design can be changed by modifying const parameters values in snake class constructor (snake.cpp) and board class constructor (board.cpp)   
 
 ### build deps:
  - `gcc`
